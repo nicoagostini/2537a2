@@ -275,7 +275,7 @@ app.get('/admin/demote/:username', async (req, res) => {
 
 app.get('/*splat', (req, res) => {
     res.status(404);
-    res.send('404 Not Found');
+    res.render('404', { title: "404 Not Found" });
     return;
 });
 
