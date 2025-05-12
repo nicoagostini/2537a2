@@ -1,0 +1,21 @@
+<%- include('templates/header') %>
+
+<main class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Check this out:</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <% if(images && images.length > 0) { %>
+            <% for(var image of images){ %>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/public/<%= image %>" class="w-full h-64 object-cover">
+                </div>
+            <% } %>
+        <% } else { %>
+            <p class="col-span-full text-center text-gray-500 text-lg">No images to display.</p>
+        <% } %>
+    </div>
+</main>
+<%if(session.error){ %>
+    <p class="text-red-600 text-center mt-4"><%= session.error %></p>
+    <% session.error = null; %>
+<% } %>
+<%- include('templates/footer') %>
